@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pranati Tyagi | AI & ML Engineer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            themeYellow: {
+              DEFAULT: '#FFB800',
+              hover: '#E0A300',
+              light: '#FFF5D6',
+              soft: '#FEF9E7',
+              border: '#FFE082'
+            },
+            themePink: {
+              DEFAULT: '#FF2E7E',
+              hover: '#E51A68',
+              light: '#FFE8EE',
+              soft: '#FFF0F5',
+              border: '#FFB3C7'
+            },
+            darkNavy: '#1E293B',
+          },
+          boxShadow: {
+            'yellow-glow': '0 20px 45px -10px rgba(255, 184, 0, 0.45)',
+            'pink-glow': '0 12px 30px -5px rgba(255, 46, 126, 0.35)',
+            'soft-card': '0 10px 30px -5px rgba(30, 41, 59, 0.05)',
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFFFFF;
+      color: #1E293B;
+    }
+    .code-font {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    /* Blinking Typewriter Cursor */
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      height: 1.15em;
+      background-color: #FF2E7E;
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    /* Yellow avatar background disk like reference */
+    .avatar-yellow-circle {
+      background: linear-gradient(145deg, #FFC107 0%, #FFB300 60%, #FFA000 100%);
+      box-shadow: 0 16px 40px -10px rgba(255, 179, 0, 0.4), inset 0 2px 6px rgba(255, 255, 255, 0.6);
+    }
+    /* Floating badge bounce */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    .floating-badge {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+    .floating-badge-delayed {
+      animation: floatSlow 4.5s ease-in-out infinite 1.5s;
+    }
+  </style>
+</head>
+<body class="selection:bg-themePink selection:text-white antialiased relative overflow-x-hidden">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-amber-100/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+     
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-themeYellow via-amber-400 to-themePink flex items-center justify-center text-white font-extrabold text-lg shadow-sm group-hover:scale-105 transition-transform">
+          PT
+        </div>
+        <div>
+          <span class="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-themePink transition-colors">Pranati Tyagi</span>
+          <span class="block text-[11px] font-mono text-slate-500 font-medium">AI & ML Engineer • Python & NLP</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        <a href="#hero" class="px-3.5 py-2 text-xs lg:text-sm font-bold text-themePink hover:bg-themePink-light rounded-xl transition-all">Home</a>
+        <a href="#about" class="px-3.5 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-themePink hover:bg-slate-50 rounded-xl transition-all">About Me</a>
+        <a href="#experience" class="px-3.5 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-themePink hover:bg-slate-50 rounded-xl transition-all">Experience (NIC)</a>
+        <a href="#projects" class="px-3.5 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-themePink hover:bg-slate-50 rounded-xl transition-all">Projects</a>
+        <a href="#skills" class="px-3.5 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-themePink hover:bg-slate-50 rounded-xl transition-all">Skills</a>
+        <a href="#education" class="px-3.5 py-2 text-xs lg:text-sm font-semibold text-slate-600 hover:text-themePink hover:bg-slate-50 rounded-xl transition-all">Education</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-bold rounded-full bg-themePink hover:bg-themePink-hover text-white shadow-pink-glow hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+          <i class="fa-regular fa-paper-plane text-xs"></i>
+          <span>Let's Talk</span>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobileMenuBtn" aria-label="Toggle Navigation" class="md:hidden p-2.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200">
+          <i class="fa-solid fa-bars-staggered text-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 bg-white px-6 pt-3 pb-6 space-y-2.5">
+      <a href="#hero" class="block px-3 py-2 text-sm font-bold text-themePink rounded-lg mobile-link">Home</a>
+      <a href="#about" class="block px-3 py-2 text-sm font-semibold text-slate-700 hover:text-themePink rounded-lg mobile-link">About Me</a>
+      <a href="#experience" class="block px-3 py-2 text-sm font-semibold text-slate-700 hover:text-themePink rounded-lg mobile-link">Experience (NIC Govt)</a>
+      <a href="#projects" class="block px-3 py-2 text-sm font-semibold text-slate-700 hover:text-themePink rounded-lg mobile-link">Projects</a>
+      <a href="#skills" class="block px-3 py-2 text-sm font-semibold text-slate-700 hover:text-themePink rounded-lg mobile-link">Technical Skills</a>
+      <a href="#education" class="block px-3 py-2 text-sm font-semibold text-slate-700 hover:text-themePink rounded-lg mobile-link">Education & Leadership</a>
+      <a href="#contact" class="block px-3 py-2 text-sm font-bold text-themeYellow-hover rounded-lg mobile-link">Contact Pranati</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION (Modeled after reference image with Constellation Mesh & Yellow Circle Avatar) -->
+    <section id="hero" class="relative min-h-[580px] lg:min-h-[660px] flex items-center justify-center overflow-hidden bg-white pt-6 pb-16">
+     
+      <!-- Interactive Constellation Network Background (Canvas) -->
+      <canvas id="constellationCanvas" class="absolute inset-0 w-full h-full pointer-events-auto z-0"></canvas>
+
+      <!-- Content Container -->
+      <div class="relative z-10 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+         
+          <!-- LEFT COLUMN: Typography & Actions (Reference Style) -->
+          <div class="lg:col-span-7 text-left space-y-6">
+           
+            <!-- Greeting & Name -->
+            <div class="space-y-1">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+                Hi There,
+              </h2>
+              <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight">
+                I'm Pranati <span class="text-themeYellow font-black inline-block relative">
+                  Tyagi
+                  <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 9C30 3 70 3 98 9" stroke="#FF2E7E" stroke-width="4" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </h1>
+            </div>
+
+            <!-- Typewriter Subheading -->
+            <div class="text-lg sm:text-2xl font-bold text-slate-800 flex items-center flex-wrap gap-1.5 pt-1">
+              <span>I Am Into</span>
+              <span id="typewriterText" class="text-themePink font-extrabold"></span>
+              <span class="typing-cursor"></span>
+            </div>
+
+            <!-- Brief Subtext -->
+            <p class="text-slate-600 text-sm sm:text-base max-w-xl leading-relaxed">
+              B.Tech CSE student specializing in <strong>Artificial Intelligence & Machine Learning</strong> at Symbiosis Institute of Technology. Experienced in developing real-world Transformer NLP models at the <strong>National Informatics Centre (NIC)</strong>.
+            </p>
+
+            <!-- Call To Action Button (Deep Navy/Indigo Pill with Arrow Icon) -->
+            <div class="pt-2">
+              <a href="#about" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-[#120F54] hover:bg-[#1E1A7A] text-white font-bold text-sm sm:text-base shadow-xl shadow-indigo-950/20 hover:scale-105 transition-all duration-300">
+                <span>About Me</span>
+                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">
+                  <i class="fa-solid fa-arrow-down"></i>
+                </span>
+              </a>
+            </div>
+
+            <!-- Social Links (Circular Solid Black/Navy Icons like Reference Image) -->
+            <div class="pt-2 flex items-center gap-3 sm:gap-4 flex-wrap">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="mailto:pranati.tyagi@example.com" title="Email" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              <a href="https://kaggle.com" target="_blank" rel="noopener noreferrer" title="Kaggle" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md">
+                <i class="fa-brands fa-kaggle"></i>
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter / X" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <button onclick="downloadResumeSummary()" title="Resume Summary" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-file-pdf"></i>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: Iconic Yellow Circle Portrait (Matches Reference Image) -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+           
+            <div class="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[380px] md:h-[380px] flex items-center justify-center">
+             
+              <!-- Vibrant Yellow Circle Background (Reference layout) -->
+              <div class="absolute inset-0 rounded-full avatar-yellow-circle border-4 border-white shadow-yellow-glow"></div>
+
+              <!-- Inner Portrait Image (Cropped inside circle) -->
+              <div class="relative w-[92%] h-[92%] rounded-full overflow-hidden border-2 border-white/60 shadow-inner flex items-center justify-center bg-amber-400">
+                <img
+                  id="heroProfileImg"
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+                  alt="Pranati Tyagi Portrait"
+                  class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                  onerror="renderFallbackCanvas(this)"
+                />
+              </div>
+
+              <!-- Floating Floating Badge 1 (Top Right) -->
+              <div class="absolute -top-2 -right-4 floating-badge bg-white px-4 py-2 rounded-2xl shadow-lg border border-pink-100 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-themePink"></span>
+                <span class="text-xs font-extrabold text-slate-800">Govt. of India Intern @ NIC</span>
+              </div>
+
+              <!-- Floating Badge 2 (Bottom Left) -->
+              <div class="absolute -bottom-3 -left-4 floating-badge-delayed bg-white px-4 py-2 rounded-2xl shadow-lg border border-amber-200 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-themeYellow"></span>
+                <span class="text-xs font-extrabold text-slate-800">SIT Pune • CGPA 7.74</span>
+              </div>
+
+              <!-- Floating Badge 3 (Middle Right) -->
+              <div class="absolute top-1/2 -right-6 hidden sm:flex bg-white px-3.5 py-1.5 rounded-xl shadow-md border border-slate-100 items-center gap-1.5 text-[11px] font-bold text-slate-700">
+                <i class="fa-solid fa-brain text-themePink text-xs"></i>
+                <span>Transformer NLP</span>
+              </div>
+
+            </div>
+
+            <!-- Custom Photo Uploader / Switcher -->
+            <div class="mt-6 flex items-center gap-3">
+              <label class="cursor-pointer px-4 py-2 rounded-full bg-themePink-light hover:bg-themePink hover:text-white text-themePink font-bold text-xs flex items-center gap-2 transition-all shadow-sm">
+                <i class="fa-solid fa-camera"></i>
+                <span>Use My Custom Photo</span>
+                <input type="file" id="photoInput" accept="image/*" class="hidden">
+              </label>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME & PHILOSOPHY (Yellow + White + Pink styling) -->
+    <section id="about" class="py-20 bg-themeYellow-soft/40 border-y border-amber-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <div class="max-w-3xl mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-themePink-light text-themePink text-xs font-bold tracking-wider uppercase mb-3">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <span>Professional Profile</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Building Practical AI Systems & Demystifying Code
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+         
+          <div class="lg:col-span-8 space-y-5 text-slate-700 text-base leading-relaxed">
+            <div class="p-6 sm:p-7 rounded-3xl bg-white border border-amber-200/80 shadow-soft-card">
+              <p class="font-medium text-slate-800">
+                I am a B.Tech Computer Science student specializing in <strong class="text-themePink font-extrabold">Artificial Intelligence & Machine Learning</strong> at Symbiosis Institute of Technology, with strong hands-on expertise in Python, Flask, NLP, and machine learning.
+              </p>
+            </div>
+
+            <p>
+              Experienced in developing real-world AI applications, including a multilingual Transformer-based RTI classification system during my internship at the <strong class="text-slate-900 font-bold">National Informatics Centre (NIC)</strong>, Government of India. I handled everything from data pipelines and Transformer tokenization to Flask REST APIs and dynamic analytics dashboards.
+            </p>
+
+            <p>
+              I possess a strong ability to understand and simplify programming concepts, with a deep command of Python fundamentals, data structures, object-oriented programming, and AI/ML algorithms. I am particularly passionate about helping beginners build strong programming foundations through clear explanations, practical examples, and project-based learning.
+            </p>
+
+            <!-- Feature Highlight Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-5 rounded-2xl bg-white border border-pink-100 shadow-sm flex items-start gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-themePink-light text-themePink flex items-center justify-center text-xl shrink-0 font-bold">
+                  <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <div>
+                  <h4 class="text-slate-900 font-extrabold text-sm">Full Pipeline Integration</h4>
+                  <p class="text-xs text-slate-600 mt-1">Connecting ML inference with Flask APIs, reactive frontend states, and operational datasets.</p>
+                </div>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-white border border-amber-100 shadow-sm flex items-start gap-4">
+                <div class="w-12 h-12 rounded-2xl bg-themeYellow-light text-themeYellow-hover flex items-center justify-center text-xl shrink-0 font-bold">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <div>
+                  <h4 class="text-slate-900 font-extrabold text-sm">Conceptual Clarity</h4>
+                  <p class="text-xs text-slate-600 mt-1">Teaching and mentoring beginners in OOP, Data Structures, and Transformer concepts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Summary Card -->
+          <div class="lg:col-span-4">
+            <div class="bg-white p-7 rounded-3xl border-2 border-themeYellow shadow-soft-card space-y-5">
+              <div class="flex items-center gap-3 pb-3 border-b border-amber-100">
+                <div class="w-10 h-10 rounded-xl bg-themeYellow-light text-themeYellow-hover flex items-center justify-center text-base font-bold">
+                  <i class="fa-solid fa-id-card"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-900 text-sm">Pranati Tyagi</h3>
+                  <span class="text-xs text-themePink font-semibold">Profile Overview</span>
+                </div>
+              </div>
+
+              <div class="space-y-3.5 text-xs">
+                <div>
+                  <span class="text-slate-400 font-mono uppercase block text-[10px]">Academic Degree</span>
+                  <span class="text-slate-900 font-bold text-sm">B.Tech CSE (AI & ML)</span>
+                  <span class="text-slate-500 block">Symbiosis Institute of Technology</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 font-mono uppercase block text-[10px]">Current CGPA</span>
+                  <span class="text-emerald-600 font-extrabold font-mono text-base">7.74 / 10</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 font-mono uppercase block text-[10px]">Government Internship</span>
+                  <span class="text-slate-800 font-semibold">National Informatics Centre (NIC)</span>
+                  <span class="text-slate-500 block">Multilingual Transformer NLP Pipeline</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 font-mono uppercase block text-[10px]">Student Leadership</span>
+                  <span class="text-themePink font-bold">Event Manager — IEEE Student Branch</span>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <a href="#contact" class="w-full py-3 rounded-xl bg-themeYellow hover:bg-themeYellow-hover text-slate-950 font-extrabold text-xs text-center block transition shadow-md">
+                  Contact Pranati
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROFESSIONAL EXPERIENCE (NIC) -->
+    <section id="experience" class="py-20 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-themePink-light text-themePink text-xs font-bold tracking-wider uppercase mb-2">
+            <i class="fa-solid fa-landmark"></i>
+            <span>Government of India</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Professional Experience
+          </h2>
+          <p class="text-slate-500 text-sm mt-2">
+            Translating complex public data into structured, automated insights.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white rounded-3xl p-6 sm:p-10 border-2 border-amber-200 shadow-soft-card hover:border-themeYellow transition-all duration-300">
+           
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-6 mb-6">
+              <div class="flex items-start gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-themeYellow text-slate-900 flex items-center justify-center text-2xl shadow-md shrink-0 font-bold">
+                  <i class="fa-solid fa-landmark-dome"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl sm:text-2xl font-black text-slate-900">Artificial Intelligence / NLP Intern</h3>
+                  <div class="text-themePink font-bold text-sm sm:text-base mt-0.5">
+                    National Informatics Centre (NIC) — Government of India
+                  </div>
+                  <div class="text-xs text-slate-500 mt-1 flex flex-wrap items-center gap-3">
+                    <span><i class="fa-regular fa-calendar mr-1 text-slate-400"></i> [Duration]</span>
+                    <span><i class="fa-solid fa-location-dot mr-1 text-slate-400"></i> New Delhi, India</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:text-right shrink-0">
+                <span class="inline-block px-3 py-1.5 rounded-full text-xs font-mono font-bold bg-themePink-light text-themePink border border-pink-200">
+                  RTI Multilingual AI
+                </span>
+              </div>
+            </div>
+
+            <!-- Bullet Points from Experience -->
+            <div class="space-y-4">
+              <h4 class="text-xs font-mono uppercase text-slate-400 tracking-wider font-bold">Key Project Deliverables & Contributions</h4>
+             
+              <ul class="space-y-3.5 text-slate-700 text-sm sm:text-base">
+                <li class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-themePink-light text-themePink flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span><strong>Multilingual Transformer NLP Model:</strong> Developed a multilingual Transformer-based NLP model to classify RTI complaints collected from Government of India data sources into multiple meaningful parameters.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-themePink-light text-themePink flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span><strong>Data Processing Pipelines:</strong> Implemented Python-based data processing and model pipelines to transform unstructured citizen queries into structured, actionable information.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-themePink-light text-themePink flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span><strong>Interactive Visualization Dashboard:</strong> Integrated model outputs with an interactive frontend dashboard, enabling classified results to be dynamically visualized.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-themePink-light text-themePink flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span><strong>Reactive Data Pipeline:</strong> Built a data pipeline where changes in the underlying dataset were reflected in the dashboard results, connecting machine learning, backend processing, APIs, and visualization.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-themePink-light text-themePink flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                  <span><strong>Public Sector System Integration:</strong> Gained practical experience developing an AI solution for a real-world public-sector use case, moving beyond model development to complete system integration.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="mt-8 pt-6 border-t border-slate-100">
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-3 font-bold">Tech Stack</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200">Python</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-pink-50 text-pink-700 border border-pink-200">Transformers</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200">NLP</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-pink-50 text-pink-700 border border-pink-200">Flask REST APIs</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200">Pandas</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-pink-50 text-pink-700 border border-pink-200">NumPy</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200">JSON</span>
+                <span class="px-3 py-1 rounded-lg text-xs font-mono bg-pink-50 text-pink-700 border border-pink-200">JavaScript / HTML / CSS</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: SELECTED AI/ML PROJECTS -->
+    <section id="projects" class="py-20 bg-themeYellow-soft/30 border-y border-amber-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-themePink-light text-themePink text-xs font-bold tracking-wider uppercase mb-2">
+              <i class="fa-solid fa-code-fork"></i>
+              <span>Engineering Highlights</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+              Selected AI/ML Projects
+            </h2>
+            <p class="text-slate-600 text-sm mt-2">
+              Deep learning models, natural language pipelines, and data analytics architectures.
+            </p>
+          </div>
+
+          <!-- Project Filter Tabs -->
+          <div class="flex items-center gap-2 mt-6 md:mt-0 overflow-x-auto pb-2 md:pb-0">
+            <button onclick="filterProjects('all')" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-themePink text-white shadow-sm transition" data-filter="all">All Projects</button>
+            <button onclick="filterProjects('nlp')" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 border border-amber-200 hover:text-themePink transition" data-filter="nlp">NLP & Transformers</button>
+            <button onclick="filterProjects('healthcare')" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 border border-amber-200 hover:text-themePink transition" data-filter="healthcare">Healthcare AI</button>
+            <button onclick="filterProjects('fintech')" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 border border-amber-200 hover:text-themePink transition" data-filter="fintech">FinTech</button>
+          </div>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+         
+          <!-- PROJECT 1: RTI Classification -->
+          <div class="project-card bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/90 shadow-soft-card hover:border-themePink transition-all duration-300 flex flex-col justify-between" data-category="nlp">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-themeYellow-light text-themeYellow-hover">
+                  NIC Government
+                </span>
+                <span class="text-slate-400 text-xs font-mono">NLP Pipeline</span>
+              </div>
+
+              <div class="w-12 h-12 rounded-2xl bg-pink-50 text-themePink flex items-center justify-center text-xl mb-4 font-bold shadow-sm">
+                <i class="fa-solid fa-language"></i>
+              </div>
+
+              <h3 class="text-xl font-black text-slate-900 mb-2.5">
+                Multilingual RTI Classification & Analytics Dashboard
+              </h3>
+
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Developed a multilingual NLP system capable of classifying citizen RTI complaints into multiple parameters. Connected backend model predictions with an interactive dashboard for real-time visualization.
+              </p>
+
+              <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink mt-0.5 text-[11px]"></i>
+                  <span>Applied Transformer-based language understanding to process multilingual queries.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink mt-0.5 text-[11px]"></i>
+                  <span>Implemented data processing & API-based communication between model & UI.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink mt-0.5 text-[11px]"></i>
+                  <span>Designed system to automatically reflect dataset changes in dashboard outputs.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 text-amber-900">Python</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 text-pink-700">Transformers</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 text-amber-900">NLP</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 text-pink-700">Flask</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 text-amber-900">Pandas</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 text-pink-700">JavaScript</span>
+              </div>
+
+              <button onclick="openModal('rti')" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-themePink text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Inspect Pipeline Details</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PROJECT 2: Post-Surgical Forecasting -->
+          <div class="project-card bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/90 shadow-soft-card hover:border-themePink transition-all duration-300 flex flex-col justify-between" data-category="healthcare">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-themePink-light text-themePink">
+                  Healthcare AI
+                </span>
+                <span class="text-slate-400 text-xs font-mono">ViT & Swin</span>
+              </div>
+
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-themeYellow-hover flex items-center justify-center text-xl mb-4 font-bold shadow-sm">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+
+              <h3 class="text-xl font-black text-slate-900 mb-2.5">
+                Post-Surgical Complication Forecasting System
+              </h3>
+
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Designed an AI-based approach for forecasting potential post-surgical complications using time-series electronic medical records (EMR) and physiological sensor telemetry.
+              </p>
+
+              <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themeYellow-hover mt-0.5 text-[11px]"></i>
+                  <span>Explored Vision Transformers (ViT) & Swin Transformers for temporal spatiotemporal trends.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themeYellow-hover mt-0.5 text-[11px]"></i>
+                  <span>Incorporated Explainable AI (XAI) concepts to improve interpretability for surgeons.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themeYellow-hover mt-0.5 text-[11px]"></i>
+                  <span>Evaluated multi-modal clinical telemetry patterns effectively.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 text-amber-900">Python</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 text-pink-700">Deep Learning</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 text-amber-900">ViT / Swin</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 text-pink-700">Explainable AI</span>
+              </div>
+
+              <button onclick="openModal('surgical')" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-themePink text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Inspect Pipeline Details</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- PROJECT 3: Financial Data Analysis -->
+          <div class="project-card bg-white rounded-3xl p-6 sm:p-7 border border-amber-200/90 shadow-soft-card hover:border-themePink transition-all duration-300 flex flex-col justify-between" data-category="fintech">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-themeYellow-light text-themeYellow-hover">
+                  FinTech
+                </span>
+                <span class="text-slate-400 text-xs font-mono">Predictive Modeling</span>
+              </div>
+
+              <div class="w-12 h-12 rounded-2xl bg-pink-50 text-themePink flex items-center justify-center text-xl mb-4 font-bold shadow-sm">
+                <i class="fa-solid fa-chart-pie"></i>
+              </div>
+
+              <h3 class="text-xl font-black text-slate-900 mb-2.5">
+                AI-Driven Financial Data Analysis System
+              </h3>
+
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Developed an AI-based concept for analyzing financial transactions and generating personalized recommendations based on automated statistical and machine learning insights.
+              </p>
+
+              <ul class="text-xs text-slate-500 space-y-2 mb-6">
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink mt-0.5 text-[11px]"></i>
+                  <span>Applied data processing & ML algorithms to evaluate user spending patterns.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink mt-0.5 text-[11px]"></i>
+                  <span>Engineered automated recommendations for financial planning and optimization.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink mt-0.5 text-[11px]"></i>
+                  <span>Designed interactive reporting summaries using Pandas and NumPy.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-5">
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 text-amber-900">Python</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 text-pink-700">Machine Learning</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-50 text-amber-900">Pandas</span>
+                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-pink-50 text-pink-700">Data Analytics</span>
+              </div>
+
+              <button onclick="openModal('finance')" class="w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-themePink text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Inspect Pipeline Details</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: TECHNICAL SKILLS MATRIX -->
+    <section id="skills" class="py-20 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-themeYellow-light text-themeYellow-hover text-xs font-bold tracking-wider uppercase mb-2">
+            <i class="fa-solid fa-cubes"></i>
+            <span>Skill Matrix</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Technical Stack & Competencies
+          </h2>
+          <p class="text-slate-500 text-sm mt-2">
+            Categorized overview of programming languages, machine learning frameworks, and engineering tools.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+         
+          <!-- Primary Core Stack -->
+          <div class="bg-gradient-to-br from-themeYellow-light/60 to-white p-6 rounded-3xl border-2 border-themeYellow shadow-sm">
+            <div class="flex items-center gap-3 mb-4 text-themeYellow-hover font-extrabold text-lg">
+              <div class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center">
+                <i class="fa-solid fa-star text-themeYellow"></i>
+              </div>
+              <h3>Primary Core Focus</h3>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Core competencies applied in real-world government and academic projects.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1.5 rounded-xl bg-white text-slate-900 text-xs font-bold border border-amber-300 shadow-sm">Python</span>
+              <span class="px-3 py-1.5 rounded-xl bg-white text-slate-900 text-xs font-bold border border-amber-300 shadow-sm">Flask</span>
+              <span class="px-3 py-1.5 rounded-xl bg-white text-slate-900 text-xs font-bold border border-amber-300 shadow-sm">Machine Learning</span>
+              <span class="px-3 py-1.5 rounded-xl bg-white text-slate-900 text-xs font-bold border border-amber-300 shadow-sm">NLP</span>
+              <span class="px-3 py-1.5 rounded-xl bg-white text-slate-900 text-xs font-bold border border-amber-300 shadow-sm">Artificial Intelligence</span>
+            </div>
+          </div>
+
+          <!-- AI & ML Card -->
+          <div class="bg-gradient-to-br from-themePink-light/50 to-white p-6 rounded-3xl border-2 border-themePink/30 shadow-sm">
+            <div class="flex items-center gap-3 mb-4 text-themePink font-extrabold text-lg">
+              <div class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center">
+                <i class="fa-solid fa-brain text-themePink"></i>
+              </div>
+              <h3>AI & Deep Learning</h3>
+            </div>
+            <p class="text-xs text-slate-600 mb-4">Model architectures, evaluations, and representation learning.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1.5 rounded-xl bg-white text-slate-700 text-xs font-mono border border-pink-200">Supervised Learning</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-white text-slate-700 text-xs font-mono border border-pink-200">Unsupervised Learning</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-white text-slate-700 text-xs font-mono border border-pink-200">Deep Learning</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-white text-slate-700 text-xs font-mono border border-pink-200">Transformers (BERT, ViT)</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-white text-slate-700 text-xs font-mono border border-pink-200">Feature Extraction</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-white text-slate-700 text-xs font-mono border border-pink-200">Model Evaluation</span>
+            </div>
+          </div>
+
+          <!-- Python & Dev Card -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-soft-card">
+            <div class="flex items-center gap-3 mb-4 text-slate-900 font-extrabold text-lg">
+              <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                <i class="fa-brands fa-python text-lg"></i>
+              </div>
+              <h3>Python & Core Dev</h3>
+            </div>
+            <p class="text-xs text-slate-500 mb-4">Writing modular, testable, object-oriented software and APIs.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Python 3</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Flask</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">REST APIs</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">OOP</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Data Structures</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">JSON</span>
+            </div>
+          </div>
+
+          <!-- Python Libraries Card -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-soft-card">
+            <div class="flex items-center gap-3 mb-4 text-slate-900 font-extrabold text-lg">
+              <div class="w-10 h-10 rounded-xl bg-pink-50 text-themePink flex items-center justify-center">
+                <i class="fa-solid fa-boxes-stacked text-lg"></i>
+              </div>
+              <h3>Python Libraries</h3>
+            </div>
+            <p class="text-xs text-slate-500 mb-4">Scientific computing, dataframe pipelines, and neural networks.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">NumPy</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Pandas</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">TensorFlow</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Keras</span>
+            </div>
+          </div>
+
+          <!-- Programming Languages & Web -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-soft-card">
+            <div class="flex items-center gap-3 mb-4 text-slate-900 font-extrabold text-lg">
+              <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                <i class="fa-solid fa-code text-lg"></i>
+              </div>
+              <h3>Languages & Web</h3>
+            </div>
+            <p class="text-xs text-slate-500 mb-4">Core languages and client-side web technologies.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Python</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">C</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Java</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">JavaScript</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">HTML5</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">CSS3</span>
+            </div>
+          </div>
+
+          <!-- Tools & Platforms -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-soft-card">
+            <div class="flex items-center gap-3 mb-4 text-slate-900 font-extrabold text-lg">
+              <div class="w-10 h-10 rounded-xl bg-pink-50 text-themePink flex items-center justify-center">
+                <i class="fa-solid fa-screwdriver-wrench text-lg"></i>
+              </div>
+              <h3>Tools & Data Processing</h3>
+            </div>
+            <p class="text-xs text-slate-500 mb-4">Version control, notebook environments, and data transformation.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Git</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">GitHub</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Jupyter Notebook</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Data Processing</span>
+              <span class="px-2.5 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-mono border border-slate-200">Data Visualization</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 6: EDUCATION & LEADERSHIP -->
+    <section id="education" class="py-20 bg-themeYellow-soft/30 border-t border-amber-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+         
+          <!-- Education Column (7 Cols) -->
+          <div class="lg:col-span-7 space-y-6">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-themeYellow-light text-themeYellow-hover text-xs font-bold tracking-wider uppercase mb-2">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span>Academic Record</span>
+              </div>
+              <h2 class="text-3xl font-black text-slate-900 tracking-tight">
+                Education
+              </h2>
+            </div>
+
+            <!-- SIT Pune -->
+            <div class="p-6 sm:p-7 rounded-3xl bg-white border-2 border-amber-200 shadow-soft-card space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-themePink-light text-themePink">
+                  B.Tech Engineering
+                </span>
+                <span class="text-xs text-slate-500 font-mono font-medium">[Expected Graduation Year]</span>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-black text-slate-900">
+                  Bachelor of Technology (B.Tech) – Computer Science Engineering
+                </h3>
+                <p class="text-themePink font-bold text-sm mt-0.5">Specialization: Artificial Intelligence & Machine Learning</p>
+                <p class="text-slate-600 text-sm">Symbiosis Institute of Technology</p>
+              </div>
+
+              <div class="pt-2 flex items-center gap-3">
+                <div class="px-3.5 py-1.5 rounded-xl bg-amber-50 text-amber-900 font-mono text-sm font-black border border-amber-300">
+                  CGPA: 7.74 / 10
+                </div>
+                <span class="text-xs text-slate-500">Core study: Deep Learning, Data Structures, NLP, Flask</span>
+              </div>
+            </div>
+
+            <!-- Ahlcon International School -->
+            <div class="p-6 sm:p-7 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-slate-100 text-slate-700">
+                  Schooling
+                </span>
+                <span class="text-xs text-slate-500 font-mono">Delhi, India</span>
+              </div>
+
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">Ahlcon International School</h3>
+                <p class="text-slate-500 text-xs">Delhi</p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                <div class="bg-amber-50/50 p-3.5 rounded-2xl border border-amber-200/80">
+                  <span class="text-xs text-slate-500 block font-mono">Class XII Board</span>
+                  <div class="text-sm font-bold text-slate-900 mt-0.5">PCM with Economics</div>
+                  <div class="text-xs text-themePink font-black font-mono mt-1">Score: 82.5%</div>
+                </div>
+                <div class="bg-amber-50/50 p-3.5 rounded-2xl border border-amber-200/80">
+                  <span class="text-xs text-slate-500 block font-mono">Class X Board</span>
+                  <div class="text-sm font-bold text-slate-900 mt-0.5">Secondary School Board</div>
+                  <div class="text-xs text-themePink font-black font-mono mt-1">Score: 88.0%</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Leadership Column (5 Cols) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-themePink-light text-themePink text-xs font-bold tracking-wider uppercase mb-2">
+                <i class="fa-solid fa-users"></i>
+                <span>Extracurricular</span>
+              </div>
+              <h2 class="text-3xl font-black text-slate-900 tracking-tight">
+                Leadership
+              </h2>
+            </div>
+
+            <div class="p-6 sm:p-7 rounded-3xl bg-white border-2 border-pink-200 shadow-soft-card space-y-4">
+              <div class="w-12 h-12 rounded-2xl bg-themePink text-white flex items-center justify-center text-xl font-bold shadow-md">
+                <i class="fa-solid fa-bullhorn"></i>
+              </div>
+
+              <div>
+                <span class="text-xs font-mono uppercase text-themePink tracking-wider font-extrabold">Student Branch Leadership</span>
+                <h3 class="text-2xl font-black text-slate-900 mt-0.5">Event Manager</h3>
+                <p class="text-sm text-slate-600 font-bold">IEEE Student Branch</p>
+              </div>
+
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Coordinated and planned flagship IEEE technical events, student developer workshops, and AI seminars. Managed speaker logistics, cross-functional teams, and student outreach.
+              </p>
+
+              <div class="space-y-2 text-xs text-slate-600 pt-2 border-t border-slate-100">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink"></i>
+                  <span>Spearheaded tech symposiums & student hackathons</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-circle-check text-themePink"></i>
+                  <span>Facilitated beginner Python & AI orientation seminars</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mentorship Callout -->
+            <div class="p-6 rounded-3xl bg-themeYellow p-6 shadow-md text-slate-950 space-y-2">
+              <div class="flex items-center gap-2 font-black text-sm">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Mentorship & Mission</span>
+              </div>
+              <p class="text-xs sm:text-sm font-medium leading-relaxed">
+                "Passionate about helping beginners build strong programming foundations through clear explanations, practical examples, and project-based learning."
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 7: CONTACT & CONNECT -->
+    <section id="contact" class="py-20 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <div class="max-w-4xl mx-auto bg-gradient-to-br from-themeYellow-light/30 via-white to-themePink-light/30 rounded-3xl p-8 sm:p-12 border-2 border-amber-200 shadow-soft-card relative overflow-hidden">
+         
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <span class="px-3 py-1 rounded-full bg-themePink text-white text-xs font-bold font-mono uppercase tracking-wider">Let's Connect</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">Get in Touch with Pranati</h2>
+            <p class="text-slate-600 text-sm mt-2">
+              Feel free to reach out for machine learning opportunities, research discussions, or technical collaboration.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+           
+            <!-- Quick Contact Info -->
+            <div class="md:col-span-5 space-y-4">
+              <div class="p-4 rounded-2xl bg-white border border-amber-200 shadow-sm">
+                <span class="text-xs text-slate-400 block font-mono">Email Address</span>
+                <div class="flex items-center justify-between mt-1">
+                  <span id="emailAddress" class="text-sm font-bold text-slate-900 truncate mr-2">pranati.tyagi@example.com</span>
+                  <button onclick="copyEmailToClipboard()" class="text-xs px-2.5 py-1.5 rounded-lg bg-themePink text-white hover:bg-themePink-hover transition shadow-sm" title="Copy email">
+                    <i class="fa-regular fa-copy"></i>
+                  </button>
+                </div>
+                <div id="copyToast" class="hidden text-[11px] text-themePink font-bold mt-1">Copied to clipboard!</div>
+              </div>
+
+              <div class="p-4 rounded-2xl bg-white border border-amber-200 shadow-sm">
+                <span class="text-xs text-slate-400 block font-mono">Locations</span>
+                <div class="text-sm font-bold text-slate-900 mt-1">Pune, Maharashtra / Delhi, India</div>
+                <div class="text-xs text-slate-500 mt-0.5">Open to Remote & On-Site Roles</div>
+              </div>
+
+              <div class="pt-2 flex items-center gap-3">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-2xl bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-lg transition shadow-md">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-2xl bg-slate-950 hover:bg-themePink text-white flex items-center justify-center text-lg transition shadow-md">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <button onclick="downloadResumeSummary()" class="flex-1 h-11 rounded-2xl bg-themeYellow hover:bg-themeYellow-hover text-slate-950 text-xs font-black px-4 flex items-center justify-center gap-2 border border-amber-300 shadow-sm transition">
+                  <i class="fa-solid fa-file-arrow-down"></i>
+                  <span>Download Summary</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Message Form -->
+            <div class="md:col-span-7">
+              <form id="contactForm" onsubmit="handleContactSubmission(event)" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-mono uppercase text-slate-600 mb-1 font-bold">Your Name</label>
+                  <input type="text" id="contactName" required placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-2.5 rounded-xl bg-white border border-amber-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-themePink transition text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase text-slate-600 mb-1 font-bold">Your Email</label>
+                  <input type="email" id="contactEmail" required placeholder="sarah@company.com" class="w-full px-4 py-2.5 rounded-xl bg-white border border-amber-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-themePink transition text-sm">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono uppercase text-slate-600 mb-1 font-bold">Message</label>
+                  <textarea id="contactMessage" rows="3" required placeholder="Hi Pranati, I would love to connect regarding your AI/ML projects..." class="w-full px-4 py-2.5 rounded-xl bg-white border border-amber-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:border-themePink transition text-sm resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-themePink hover:bg-themePink-hover text-white font-extrabold text-sm shadow-pink-glow transition flex items-center justify-center gap-2">
+                  <i class="fa-regular fa-paper-plane"></i>
+                  <span>Send Message</span>
+                </button>
+              </form>
+
+              <!-- In-Page Confirmation Toast -->
+              <div id="contactSuccessToast" class="hidden mt-4 p-4 rounded-2xl bg-pink-50 border border-pink-200 text-themePink font-bold text-xs sm:text-sm text-center">
+                <i class="fa-solid fa-circle-check mr-1.5"></i>
+                Thank you! Your message has been sent to Pranati Tyagi.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 bg-white border-t border-amber-100 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="font-black text-slate-900 font-mono">Pranati Tyagi</span>
+        <span>•</span>
+        <span>B.Tech AI & ML • Symbiosis Institute of Technology</span>
+      </div>
+      <div class="font-medium text-slate-600">
+        Yellow, White & Pink Theme • Inspired by Modern Portfolio Aesthetics
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: PROJECT DETAILS DIALOG -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white max-w-2xl w-full rounded-3xl p-6 sm:p-8 border-2 border-themeYellow shadow-2xl relative max-h-[90vh] overflow-y-auto">
+      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-900 p-2 rounded-xl bg-slate-100 transition">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div id="modalContent" class="space-y-4">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-100 flex justify-end">
+        <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-themePink text-white text-xs font-bold transition">
+          Close Window
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+  <script>
+    // 1. TYPEWRITER EFFECT
+    const roles = [
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Transformer NLP Pipelines",
+      "Python & Flask Systems",
+      "Deep Learning Research"
+    ];
+    let roleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typewriterElement = document.getElementById("typewriterText");
+
+    function typeLoop() {
+      const currentRole = roles[roleIdx];
+      if (isDeleting) {
+        typewriterElement.textContent = currentRole.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typewriterElement.textContent = currentRole.substring(0, charIdx + 1);
+        charIdx++;
+      }
+
+      let speed = isDeleting ? 45 : 95;
+
+      if (!isDeleting && charIdx === currentRole.length) {
+        speed = 1800; // Pause at end of text
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        speed = 350;
+      }
+
+      setTimeout(typeLoop, speed);
+    }
+    typeLoop();
+
+    // 2. CONSTELLATION / PARTICLE NETWORK ANIMATION (Matches the reference image background)
+    const canvas = document.getElementById('constellationCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = canvas.parentElement.offsetWidth;
+      height = canvas.height = canvas.parentElement.offsetHeight;
+      initParticles();
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.75;
+        this.vy = (Math.random() - 0.5) * 0.75;
+        this.radius = Math.random() * 2.2 + 1.2;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = '#64748B';
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.floor((width * height) / 12000);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateConstellation() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Connect near particles
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 135) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(148, 163, 184, ${1 - dist / 135 * 0.9})`;
+            ctx.lineWidth = 0.75;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateConstellation);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    animateConstellation();
+
+    // 3. PROJECT DATABASE & MODAL LOGIC
+    const projectDatabase = {
+      rti: {
+        title: "Multilingual RTI Classification & Analytics Dashboard",
+        org: "National Informatics Centre (NIC) — Govt. of India",
+        tags: ["Python", "Transformers", "NLP", "Flask", "Pandas", "JavaScript"],
+        desc: "An intelligent public administration pipeline deployed for Government of India RTI data sources. Citizen complaints lodged across multiple regional languages and dialects are ingested, normalized, and classified into operational parameters.",
+        features: [
+          "Fine-tuned multilingual Transformer embeddings tailored to Indian civic and administrative terminologies.",
+          "Dynamic Python and Flask REST API services providing millisecond inference times for the frontend dashboard.",
+          "Reactive synchronization pipeline: whenever underlying databases are appended, recalculated model results update seamlessly on visual dashboards.",
+          "Significant reduction in manual dispatching and administrative bottleneck delays."
+        ]
+      },
+      surgical: {
+        title: "Post-Surgical Complication Forecasting System",
+        org: "Healthcare Informatics & Deep Learning",
+        tags: ["Python", "Machine Learning", "Vision Transformers", "Swin Transformers", "Explainable AI"],
+        desc: "An AI-based prognostic tool leveraging multimodal time-series electronic medical records and physiological ICU streams to alert clinical teams of impending surgical complications.",
+        features: [
+          "Explored Vision Transformers (ViT) and hierarchical Swin Transformers to model complex temporal spatiotemporal patterns in medical telemetry.",
+          "Integrated Explainable AI (XAI) feature attribution maps so attending doctors can audit and understand the physiological drivers behind high-risk alerts.",
+          "Tackled high-dimensional, irregularly sampled time-series records through robust preprocessing and normalization routines."
+        ]
+      },
+      finance: {
+        title: "AI-Driven Financial Data Analysis System",
+        org: "FinTech & Automated Insights",
+        tags: ["Python", "Machine Learning", "Data Processing", "Financial Insights"],
+        desc: "An intelligent personal finance engine that processes individual transactions, identifies spending anomalies, and constructs tailored budget recommendations based on automated statistical models.",
+        features: [
+          "Automated ledger parsing and categorization using Pandas and NumPy data pipelines.",
+          "Machine learning clustering for user spending patterns to uncover potential leakages.",
+          "Intuitive automated reporting that transforms raw financial data into clear, actionable advice."
+        ]
+      }
+    };
+
+    function openModal(key) {
+      const p = projectDatabase[key];
+      if (!p) return;
+
+      const html = `
+        <div class="flex items-center gap-2 text-xs font-mono text-themePink uppercase tracking-wider font-bold">
+          <i class="fa-solid fa-code-branch"></i>
+          <span>${p.org}</span>
+        </div>
+        <h3 class="text-2xl font-black text-slate-900">${p.title}</h3>
+        <p class="text-slate-600 text-sm leading-relaxed">${p.desc}</p>
+       
+        <div class="pt-2">
+          <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2 font-bold">Key Architectural Deliverables:</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+            ${p.features.map(f => `<li class="flex items-start gap-2.5"><i class="fa-solid fa-circle-check text-themePink mt-1 text-[11px]"></i><span>${f}</span></li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="pt-3">
+          <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block mb-2 font-bold">Technologies Utilized:</span>
+          <div class="flex flex-wrap gap-1.5">
+            ${p.tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-900 text-xs font-mono border border-amber-200">${t}</span>`).join('')}
+          </div>
+        </div>
+      `;
+
+      document.getElementById('modalContent').innerHTML = html;
+      document.getElementById('projectModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('projectModal').classList.add('hidden');
+    }
+
+    function filterProjects(cat) {
+      const cards = document.querySelectorAll('.project-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        if (btn.dataset.filter === cat) {
+          btn.className = "filter-btn px-4 py-2 rounded-full text-xs font-bold bg-themePink text-white shadow-sm transition";
+        } else {
+          btn.className = "filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 border border-amber-200 hover:text-themePink transition";
+        }
+      });
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Copy Email safely
+    function copyEmailToClipboard() {
+      const email = document.getElementById('emailAddress').innerText;
+      const input = document.createElement('input');
+      input.value = email;
+      document.body.appendChild(input);
+      input.select();
+      try {
+        document.execCommand('copy');
+        const toast = document.getElementById('copyToast');
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 2500);
+      } catch (e) {
+        console.error(e);
+      }
+      document.body.removeChild(input);
+    }
+
+    // Dynamic photo uploader
+    const photoInput = document.getElementById('photoInput');
+    const heroProfileImg = document.getElementById('heroProfileImg');
+    photoInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          heroProfileImg.src = evt.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Fallback Canvas
+    function renderFallbackCanvas(img) {
+      const c = document.createElement('canvas');
+      c.width = 600;
+      c.height = 600;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#FFC107';
+      ctx.fillRect(0, 0, 600, 600);
+      ctx.fillStyle = '#1E293B';
+      ctx.font = 'bold 44px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Pranati Tyagi', 300, 290);
+      ctx.font = '24px sans-serif';
+      ctx.fillStyle = '#FF2E7E';
+      ctx.fillText('AI & ML Engineer', 300, 335);
+      img.src = c.toDataURL();
+    }
+
+    // Download Resume Summary
+    function downloadResumeSummary() {
+      const summary = `Pranati Tyagi — Resume Profile Summary
+=============================================
+B.Tech Computer Science Engineering (AI & ML Specialization)
+Symbiosis Institute of Technology | CGPA: 7.74/10
+
+EXPERIENCE:
+Artificial Intelligence / NLP Intern
+National Informatics Centre (NIC) — Government of India
+• Multilingual Transformer-based NLP model for RTI query classification.
+• Dynamic data pipeline with Flask and real-time visualization dashboard.
+
+SELECTED PROJECTS:
+1. Multilingual RTI Classification & Analytics Dashboard (Transformers, Flask, NLP)
+2. Post-Surgical Complication Forecasting System (Vision Transformers, Swin, Explainable AI)
+3. AI-Driven Financial Data Analysis System (Machine Learning, Pandas, Automated Insights)
+
+CORE SKILLS:
+Python, Flask, REST APIs, Machine Learning, Deep Learning, Transformers, NLP, NumPy, Pandas, TensorFlow, Keras.
+
+LEADERSHIP & ACTIVITIES:
+Event Manager — IEEE Student Branch
+Ahlcon International School, Delhi (Class XII: 82.5%, Class X: 88%)`;
+
+      const blob = new Blob([summary], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = "Pranati_Tyagi_AI_ML_Profile.txt";
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    }
+
+    // Form submission simulation
+    function handleContactSubmission(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const toast = document.getElementById('contactSuccessToast');
+      toast.innerHTML = `<i class="fa-solid fa-circle-check mr-1.5"></i> Thank you, <strong>${name}</strong>! Your message has been sent to Pranati Tyagi.`;
+      toast.classList.remove('hidden');
+      document.getElementById('contactForm').reset();
+      setTimeout(() => toast.classList.add('hidden'), 5000);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
